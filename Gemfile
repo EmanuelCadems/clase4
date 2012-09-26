@@ -10,6 +10,11 @@ gem 'therubyracer'
 gem 'sqlite3'
 gem 'hirb'
 
+gem 'devise'
+gem 'has_scope'
+gem 'responders'
+gem 'inherited_resources'
+
 
 # Gems used only for assets and not required
 # in production environments by default.
