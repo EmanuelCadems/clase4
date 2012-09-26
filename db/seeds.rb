@@ -5,3 +5,21 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+User.delete_all
+(1..10).each do |i|
+	User.create(:first_name => "nombre de usuario #{i}",:last_name => "apellido de usuario #{i}",:email => "usuario#{i}@example.com")
+end
+
+Client.delete_all
+Holiday.delete_all
+User.all.each do | user|
+	(1..10).each do |index|
+   		user.clients.create(:company_name =>"company client #{index}", :contact_name => "client #{index}", :contact_surname => "client surname#{index}", :email=>"client#{index}@example.com")
+   	end	
+   	(1..5).each do |index|
+   		user.holidays.create(:description => "feriado #{index}", :date=> Date.today + rand(99))
+   	end
+end
+#Holiday.delete_all
+
+
