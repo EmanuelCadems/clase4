@@ -7,7 +7,7 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 User.delete_all
 (1..10).each do |i|
-	User.create(:first_name => "nombre de usuario #{i}",:last_name => "apellido de usuario #{i}",:email => "usuario#{i}@example.com")
+	User.create(:first_name => "nombre de usuario #{i}",:last_name => "apellido de usuario #{i}",:email => "usuario#{i}@example.com", :password => "usuario#{i}@example.com", :password_confirmation => "usuario#{i}@example.com")
 end
 
 Client.delete_all

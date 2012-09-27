@@ -1,0 +1,25 @@
+<% if @holidays.empty? %>
+	<p> Aún no cargó su calendario. Comience ahora haciendo click aqui </p>
+<%else%>
+	<table>
+		<thead>
+			<th> Descripción </th>
+			<th> Fecha </th>
+			<th> </th>
+			<th> </th>
+		</thead>
+		<tbody>
+		<% @holidays.each do |holiday| %>
+			<tr>
+	           		<td><%= holiday.description %></td>
+	           		<td><%= holiday.date %></td>
+	           		<td><%= link_to "Editar", edit_holiday_path(holiday)  %></td>
+	           		<td><%=  %></td>
+	        </tr>
+	    <%end %>	
+	           
+
+		</tbody>
+	</table>
+	<%= link_to "Agregar un feriado", new_holiday_path%>
+<%end%>
