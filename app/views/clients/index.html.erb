@@ -1,0 +1,31 @@
+<% if @clients.empty? %>
+	<p> Aún no cargó su calendario. Comience ahora haciendo click aqui </p>
+<%else%>
+	<%= will_paginate @collection, :renderer => BootstrapPagination::Rails%>
+	<table>
+		<thead>
+			<th> Compañia </th>
+			<th> Nombre de Contacto </th>
+			<th> Apellido de Contacto </th>
+			<th> email</th>
+			<th> </th>
+			<th> </th>
+		</thead>
+		<tbody>
+
+		<% @clients.each do |client| %>
+			<tr>
+	           		<td><%= client.company_name %></td>
+	           		<td><%= client.contact_name %></td>
+	           		<td><%= client.contact_surname %></td>
+	           		<td><%= client.email %></td>
+	           		<td><%= link_to "Editar", edit_client_path(client)  %></td>
+	           		<td><%= link_to "Eliminar", client_path(client), :method => :delete,:confirm => "¿Está seguro que desea eliminar al cliente #{client.full_name} ?"  %></td>
+	        </tr>
+	    <%end %>	
+	           
+
+		</tbody>
+	</table>
+	<%= link_to "Agregar un feriado", new_client_path%> 
+<%end%>

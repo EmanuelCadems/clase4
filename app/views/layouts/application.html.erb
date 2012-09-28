@@ -47,8 +47,8 @@
               <div class="nav-collapse collapse">
           <% if user_signed_in? %>
                 <ul class="nav">
-                  <li class="active"><a href="http://twitter.github.com/bootstrap/examples/hero.html#">Home</a></li>
-                  <li><%= link_to "Mis Feriados", holidays_path %></li>
+                  <li><%= link_to "Mis Clientes", clients_path %></li>
+                  <li><%= link_to "Mis Feriados", holidays_path %></li>                  
                   <li><%= link_to("Cerrar Sesión", destroy_user_session_path, :method =>:delete) %></li>
                   <li class="dropdown">
                     <a href="http://twitter.github.com/bootstrap/examples/hero.html#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
@@ -64,11 +64,11 @@
                   </li>
                 </ul>
           <%else%>
-          <%= form_for(@user,:url => user_session_path) do |f| %>
+          <%= form_for(@user,:url => user_session_path, :html => {:class => "navbar-form pull-righ"}) do |f| %>
             
             <%= f.email_field :email, :class => :span2, :placeholder => :email %>           
-            <%= f.password_field :password %>            
-            <%= f.submit "Sign in" %> 
+            <%= f.password_field :password, :class => :span2 %>            
+            <%= f.submit "Sign in", :class => :btn %> 
             <%end %>               
           <%end%>    
               </div><!--/.nav-collapse -->
