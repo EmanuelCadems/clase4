@@ -11,4 +11,11 @@ class ClientsController < InheritedResources::Base
 		3
 	end
 
+	def create
+		create!{clients_path}
+	end
+	def update
+		update!{clients_path}
+	end
+
 end

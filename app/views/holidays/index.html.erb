@@ -1,3 +1,4 @@
+<h2> Mis Feriados </h2>
 <% if @holidays.empty? %>
 	<p> Aún no cargó su calendario. Comience ahora haciendo click aqui </p>
 <%else%>
@@ -14,13 +15,14 @@
 			<tr>
 	           		<td><%= holiday.description %></td>
 	           		<td><%= holiday.date %></td>
-	           		<td><%= link_to "Editar", edit_holiday_path(holiday)  %></td>
-	           		<td><%= link_to "Eliminar", holiday_path(holiday), :method => :delete,:confirm => '¿Está seguro que desea eliminar el feriado?'  %></td>
+	           		<td><%= link_to "Editar", edit_holiday_path(holiday), :class => "btn btn-primary btn-mini"  %></td>
+	           		<td><%= link_to "Eliminar", holiday_path(holiday), :method => :delete,:confirm => '¿Está seguro que desea eliminar el feriado?', :class => "btn btn-primary btn-mini" %></td>
 	        </tr>
 	    <%end %>	
 	           
 
 		</tbody>
 	</table>
-	<%= link_to "Agregar un feriado", new_holiday_path%> 
+	<br />
+	<%= link_to "Agregar un feriado", new_holiday_path, :class => "btn btn-primary btn-large"%> 
 <%end%>

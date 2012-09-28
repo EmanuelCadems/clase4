@@ -3,7 +3,7 @@ class HolidaysController < InheritedResources::Base
 
 	# belongs_to :user
 	# actions :index, :new, :create
-	protected
+	#protected
 	def begin_of_association_chain
 		current_user
 	end
@@ -16,6 +16,13 @@ class HolidaysController < InheritedResources::Base
 
 	def per_page
 		3
+	end
+
+	def create
+		create!{holidays_path}
+	end
+	def update
+		update!{holidays_path}
 	end
 
 	# def create
