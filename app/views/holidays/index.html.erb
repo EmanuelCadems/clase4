@@ -1,6 +1,7 @@
 <% if @holidays.empty? %>
 	<p> Aún no cargó su calendario. Comience ahora haciendo click aqui </p>
 <%else%>
+	<%= will_paginate @holidays%>
 	<table>
 		<thead>
 			<th> Descripción </th>
@@ -21,5 +22,5 @@
 
 		</tbody>
 	</table>
-	<%= link_to "Agregar un feriado", new_holiday_path%>
+	<%= link_to "Agregar un feriado", new_holiday_path%> 
 <%end%>

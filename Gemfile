@@ -14,6 +14,7 @@ gem 'devise'
 gem 'has_scope'
 gem 'responders'
 gem 'inherited_resources'
+gem 'will_paginate','~> 3.0'
 
 #gem 'jquery-rails', '~> 2.1'
 
