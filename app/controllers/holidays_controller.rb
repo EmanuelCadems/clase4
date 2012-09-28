@@ -9,7 +9,8 @@ class HolidaysController < InheritedResources::Base
 	end
 
 	def collection
-		#@holidays ||= end_of_association_chain.paginate(:params[:page]).all
+		#@holidays ||= end_of_association_chain.paginate(:page => params[:page])
+		# @holidays ||= end_of_association_chain.paginate(:params[:page]).all
 		get_collection_ivar || set_collection_ivar(end_of_association_chain.paginate(:page => params[:page], :per_page => per_page))
 	end
 

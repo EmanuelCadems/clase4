@@ -1,7 +1,7 @@
 <% if @holidays.empty? %>
 	<p> Aún no cargó su calendario. Comience ahora haciendo click aqui </p>
 <%else%>
-	<%= will_paginate @holidays%>
+	<%= will_paginate @collection, :renderer => BootstrapPagination::Rails%>
 	<table>
 		<thead>
 			<th> Descripción </th>
