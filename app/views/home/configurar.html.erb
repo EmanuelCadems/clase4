@@ -1,4 +1,14 @@
 <h2>Configurar datos de Envío </h2>
+<div class="alert alert-info">
+  <strong>Importante</strong>
+   Estos datos representan:
+   <ul>
+      <li> First Name & Last Name: Serán la firma de su email.</li> 
+      <li> Days: Indican la cantidad de días de anticipación con la que se mandará su mensaje automático. </li> 
+      <li> Message: Es el contenido de su email. Se puede incluir marcado html y estio en línea </li> 
+        
+   </ul>
+</div>
 <%= form_for(@current_user, :url => actualizar_usuario_path) do |f| %>
   <% if @current_user.errors.any? %>
   <div id="errorExplanation", class="alert alert-error">
@@ -20,9 +30,13 @@
     <%= f.label :last_name %><br />
     <%= f.text_field :last_name %>
   </div>
-<div class="field">
+  <div class="field">
     <%= f.label :days %><br />
     <%= f.text_field :days %>
+  </div>
+  <div class="field">
+    <%= f.label :message %><br />
+    <%= f.text_area :message, :size => "30x6" %>
   </div>
 
   
