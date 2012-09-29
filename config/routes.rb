@@ -4,6 +4,8 @@ Clase4::Application.routes.draw do
   get "home/index"
   resources :holidays
   resources :clients
+  match 'configurar'=>'home#configurar', :as => :configurar
+  match 'actualizar'=>'home#actualizar_usuario', :as => :actualizar_usuario
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
