@@ -6,6 +6,7 @@ Clase4::Application.routes.draw do
   resources :clients
   match 'configurar'=>'home#configurar', :as => :configurar
   match 'actualizar'=>'home#actualizar_usuario', :as => :actualizar_usuario
+  match 'sending_email' => 'home#send_email_test', :as => :sending_email
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

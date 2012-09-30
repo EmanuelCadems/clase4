@@ -25,6 +25,11 @@ gem 'responders'
 gem 'inherited_resources'
 gem 'will_paginate','~> 3.0'
 gem 'will_paginate-bootstrap'
+
+# Envío de email
+gem 'hpricot'
+gem 'premailer-rails3'
+
 #gem 'jquery-rails', '~> 2.1'
 
 # Gems used only for assets and not required

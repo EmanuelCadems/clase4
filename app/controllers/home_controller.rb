@@ -23,4 +23,9 @@ class HomeController < ApplicationController
 	    end
 	  end
   end
+
+  def send_email_test
+  	NewsletterMailer.weekly("utn.frt.dspace@gmail.com").deliver
+  	redirect_to root_path, :notice => "Email enviado"
+  end
 end
