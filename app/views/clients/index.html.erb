@@ -1,7 +1,15 @@
+<h2> Mis Clientes </h2>
 <% if @clients.empty? %>
-	<p> Aún no cargó su calendario. Comience ahora haciendo click aqui </p>
+<div class="row">
+	<div class="span4">
+		<div class="alert alert-block">
+			<a class="close" data-dismiss="alert">x</a>
+			<h4 class="alert-heading"> Aún no cargó Ningún cliente. </h4>
+			Comience ahora haciendo click en el botón de abajo.
+		</div>
+	</div>
+</div>
 <%else%>
-	<h2> Mis Clientes </h2>
 	<%= will_paginate @collection, :renderer => BootstrapPagination::Rails%>
 	<table>
 		<thead>
@@ -30,5 +38,5 @@
 	</table>
 	<br />
 	<br />
-	<%= link_to "Agregar un Cliente", new_client_path, :class => "btn btn-primary btn-large"%> 
 <%end%>
+<%= link_to "Agregar un Cliente", new_client_path, :class => "btn btn-primary btn-large"%> 
