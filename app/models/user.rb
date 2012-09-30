@@ -22,4 +22,18 @@ class User < ActiveRecord::Base
   	return false
   end
 
+  def holiday
+    "#{Date.today + self.days}(" + self.holidays.where(:date => Date.today + self.days).first.description + ")"
+  end
+
+  def self.envio_masivo
+    User.all.each do |user|
+      if user.any_holiday?
+          user.clients.each do |client|
+            NewsletterMailer.weekly("#{client.email}").deliver 
+          end
+      end    
+    end
+  end
+
 end

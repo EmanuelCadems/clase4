@@ -1,6 +1,6 @@
 #encoding=utf-8
 class NewsletterMailer < ActionMailer::Base
-  default from: "emanuel.cadems@gmail.com"
+  default from: "#{current_user.email}"
 
   # Subject can be set in your I18n file at config/locales/en.yml
   # with the following lookup:
