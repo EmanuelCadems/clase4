@@ -1,15 +1,15 @@
 #encoding=utf-8
 class NewsletterMailer < ActionMailer::Base
-  default from: "#{current_user.email}"
+  #default from: "emanuel.cadems@gmail.com"
 
   # Subject can be set in your I18n file at config/locales/en.yml
   # with the following lookup:
   #
   #   en.newsletter_mailer.weekly.subject
   #
-  def weekly(email)
+  def weekly(from, email)
     #@greeting = "Hi"
 
-    mail to: email, subject: "Notificación de Feriado desde EmanuelCadems"
+    mail from: from, to: email, subject: "Notificación de Feriado desde EmanuelCadems"
   end
 end
