@@ -8,8 +8,8 @@ class NewsletterMailer < ActionMailer::Base
   #   en.newsletter_mailer.weekly.subject
   #
   def weekly(email)
-    @greeting = "Hi"
+    #@greeting = "Hi"
 
-    mail to: "to@example.org", subject: "Notificación de Feriado desde EmanuelCadems"
+    mail to: email, subject: "Notificación de Feriado desde EmanuelCadems"
   end
 end
