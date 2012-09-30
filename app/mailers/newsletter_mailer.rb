@@ -7,8 +7,8 @@ class NewsletterMailer < ActionMailer::Base
   #
   #   en.newsletter_mailer.weekly.subject
   #
-  def weekly(from, email)
-    @holiday = current_user.holiday
+  def weekly(from, email, holiday)
+    @holiday = holiday
 
     mail from: from, to: email, subject: "Notificación de Feriado desde EmanuelCadems"
   end

@@ -30,7 +30,7 @@ class User < ActiveRecord::Base
     User.all.each do |user|
       if user.any_holiday?
           user.clients.each do |client|
-            NewsletterMailer.weekly("#{user.email}","#{client.email}").deliver 
+            NewsletterMailer.weekly("#{user.email}","#{client.email}","#{user.holiday}").deliver 
           end
       end    
     end
