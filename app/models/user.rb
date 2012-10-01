@@ -40,7 +40,7 @@ class User < ActiveRecord::Base
     User.all.each do |user|
       if user.any_holiday?
           user.clients.each do |client|
-            if NewsletterMailer.weekly("#{user.email}","#{client.email}","#{user.label_holiday}").deliver
+            if NewsletterMailer.weekly("#{user.email}","#{client.email}","#{user.holiday.label_holiday}").deliver
               user.holiday.notify
             end
           end
