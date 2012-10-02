@@ -62,7 +62,7 @@
                 </div>
           <%else%>          
             <%= form_for(@user,:url => user_session_path, :html => {:class => "navbar-form pull-right"}) do |f| %>      
-              <%= f.email_field :email, :class => :span2, :placeholder => :Email %>           
+              <%= f.email_field :email, :class => :span2, :required => true, :placeholder => :Email %>           
               <%= f.password_field :password, :class => :span2, :placeholder => :Password %>            
               <%= f.submit "Sign in", :class => :btn %> 
               <%= link_to "Sign Up Now!", new_user_registration_path, :class => "btn btn-primary btn-small" %>

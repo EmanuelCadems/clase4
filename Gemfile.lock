@@ -32,6 +32,7 @@ GEM
     arel (3.0.2)
     bcrypt-ruby (3.0.1)
     builder (3.0.3)
+    chronic (0.6.7)
     coffee-rails (3.2.2)
       coffee-script (>= 2.2.0)
       railties (~> 3.2.0)
@@ -151,6 +152,9 @@ GEM
       multi_json (~> 1.0, >= 1.0.2)
     warden (1.1.0)
       rack (>= 1.0)
+    whenever (0.7.3)
+      activesupport (>= 2.3.4)
+      chronic (~> 0.6.3)
     will_paginate (3.0.3)
     will_paginate-bootstrap (0.2.1)
       will_paginate (>= 3.0.3)
@@ -176,5 +180,6 @@ DEPENDENCIES
   therubyracer
   thin
   uglifier (>= 1.0.3)
+  whenever
   will_paginate (~> 3.0)
   will_paginate-bootstrap

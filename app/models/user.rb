@@ -19,15 +19,26 @@ class User < ActiveRecord::Base
   #     ** si el cliente No tiene feriado dentro delos días especificados en days. 
   #     ** si el cliente tiene feriado dentro delos días especificados en days, pero ya fué notificado via email. 
   #     ** Si el cliente aún no especificó los días de anticipacion con los que se deberá notificar en el campo days.
+  # def any_holiday?    
+  #   return false if days.nil?
+  #   self.holidays.each do |holiday|
+  #     if (holiday.date == (Date.today + self.days) and holiday.notified == false)               
+  #       return true
+  #     end
+  #   end
+  #   return false
+  # end
   def any_holiday?  	
   	return false if days.nil?
   	self.holidays.each do |holiday|
-  		if (holiday.date == (Date.today + self.days) and holiday.notified == false)  			  			
+  		if (holiday.date == (Date.today + self.days))
   			return true
   		end
   	end
   	return false
   end
+
+
 
   # Devuelve el feriado del usuario que vendrá dentro de los días especificados en days. 
   # Debido a que las fechas no se repiten dentro del calendario personal del usuario, puedo usar a la fecha como parámetro de búsqueda.
@@ -40,8 +51,11 @@ class User < ActiveRecord::Base
     User.all.each do |user|
       if user.any_holiday?
           user.clients.each do |client|
-            if NewsletterMailer.weekly("#{user.email}","#{client.email}","#{user.holiday.label_holiday}").deliver
-              user.holiday.notify
+            unless Notification.where(:holiday =>  user.holiday, :client => client)
+              if NewsletterMailer.weekly("#{user.email}","#{client.email}","#{user.holiday.label_holiday}").deliver
+                #user.holiday.notify                
+                Notification.create(:client => client, :user => user)
+              end
             end
           end
       end    
